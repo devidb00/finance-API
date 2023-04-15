@@ -3,7 +3,7 @@ from fastapi import FastAPI
 # Settings
 from config import AppSettings
 # Routers
-from routers import metadata
+from routers import metadata, holders
 
 settings = AppSettings()
 app = FastAPI(
@@ -13,12 +13,7 @@ app = FastAPI(
 )
 
 app.include_router(metadata.router)
-
-
-@app.get('/')
-def welcome_hello() -> str:
-    return "Hello World!"
-
+app.include_router(holders.router)
 
 if __name__ == "__main__":
     uvicorn.run(
