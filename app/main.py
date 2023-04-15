@@ -14,11 +14,9 @@ app = FastAPI(
 
 app.include_router(metadata.router)
 
-
 @app.get('/', description="Welcome buddy ;)")
-def welcome_hello():
+def welcome_hello() -> str:
     return "Hello World!"
-
 
 if __name__ == "__main__":
     uvicorn.run(
