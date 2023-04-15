@@ -1,22 +1,24 @@
 import uvicorn
 from fastapi import FastAPI
-
+# Settings
+from config import AppSettings
+# Routers
 from routers import metadata
 
+settings = AppSettings()
 app = FastAPI(
-    title="Yahoo Finance API",
-    version="0.0.1",
-    contact={
-        "name": "Tarik ID BELLOUCH",
-        "email": "tarik.id-bellouch@yucode.fr",
-    },
+    title=settings.app_title,
+    version=settings.version,
+    contact=settings.contact_info,
 )
 
 app.include_router(metadata.router)
 
-@app.get('/', description="Welcome buddy ;)")
+
+@app.get('/')
 def welcome_hello() -> str:
     return "Hello World!"
+
 
 if __name__ == "__main__":
     uvicorn.run(

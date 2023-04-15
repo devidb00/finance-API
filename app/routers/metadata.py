@@ -4,7 +4,7 @@ from internal.metadata import Metadata
 router = APIRouter()
 
 
-@router.get('/{ticker}/data', tags=['metadata'])
+@router.get('/{ticker}/data', tags=['Metadata'])
 def get_ticker_metadata(
     ticker: str,
     interval: str,
