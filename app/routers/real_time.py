@@ -4,7 +4,7 @@ from internal.real_time import RealTime
 router = APIRouter()
 
 
-@router.get('/{symbols}/now', tags=['Real time data - Now'])
+@router.get('/{symbols}', tags=['Real time data - Current'])
 def get_symbols_real_time_data(
     symbols: str
 ) -> dict:

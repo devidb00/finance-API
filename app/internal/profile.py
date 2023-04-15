@@ -2,7 +2,7 @@ from urllib import request, response
 import json
 
 
-class Holders:
+class Profile:
     def __init__(
         self,
         ticker: str,
@@ -12,7 +12,7 @@ class Holders:
         region: str = "US",
         cors_domain: str = "finance.yahoo.com",
         prefix_path: str = "https://query2.finance.yahoo.com/v10/finance/quoteSummary",
-        modules: str = "institutionOwnership%2CfundOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CinsiderTransactions%2CinsiderHolders%2CnetSharePurchaseActivity",
+        modules: str = "assetProfile%2CsecFilings",
     ) -> None:
         self.ticker = ticker
         self.formatted = formatted

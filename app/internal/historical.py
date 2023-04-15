@@ -1,6 +1,7 @@
 from urllib import request, response
 import json
 
+
 class Metadata:
     def __init__(
         self,
@@ -30,4 +31,4 @@ class Metadata:
         url = f"{self.prefix_path}/{self.ticker}?interval={self.interval}&region={self.region}&lang={self.lang}&range={self.range}&.tsrc={self.tsrc}&useYfida={self.use_y_fida}&includePrePost={self.include_pre_post}&corsDomain={self.cors_domain}"
         with request.urlopen(url) as url:
             data = json.loads(url.read().decode())
-        return data
+        return data['chart']['result'][0]

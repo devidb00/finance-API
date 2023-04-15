@@ -27,4 +27,4 @@ class RealTime:
         url = f"{self.prefix_path}?symbols={self.symbols}&formatted={self.formatted}&region={self.region}&lang={self.lang}&crumb={self.crumb}&corsDomain={self.cors_domain}&fields={self.fields}"
         with request.urlopen(url) as url:
             data = json.loads(url.read().decode())
-        return data
+        return data['quoteResponse']['result'][0]
