@@ -13,4 +13,4 @@ def get_ticket_metadata(
         ticker=ticker,
         interval=interval,
         range=range
-    ).to_json()
+    ).fetch_data()
