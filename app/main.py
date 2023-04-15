@@ -3,7 +3,7 @@ from fastapi import FastAPI
 # Settings
 from config import AppSettings
 # Routers
-from routers import metadata, holders
+from routers import historical, holders, real_time
 
 settings = AppSettings()
 app = FastAPI(
@@ -12,8 +12,9 @@ app = FastAPI(
     contact=settings.contact_info,
 )
 
-app.include_router(metadata.router)
+app.include_router(historical.router, prefix="/historical")
 app.include_router(holders.router)
+app.include_router(real_time.router)
 
 if __name__ == "__main__":
     uvicorn.run(

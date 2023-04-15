@@ -1,10 +1,10 @@
 from fastapi import APIRouter
-from internal.metadata import Metadata
+from internal.historical import Metadata
 
 router = APIRouter()
 
 
-@router.get('/{ticker}/data', tags=['Metadata'])
+@router.get('/{ticker}', tags=['Historical data'])
 def get_ticker_metadata(
     ticker: str,
     interval: str,
